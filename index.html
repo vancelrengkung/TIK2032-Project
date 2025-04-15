@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Website Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Konten Home -->
+    <h1>Welcome to Vancel Rengkung's HomePage</h1>
+    
+    <div class="welcome-section">
+        
+        <div id="typing-effect" style="min-height: 10px; margin-top: 10px; font-size: 20px; color: #3498db;"></div>
+        
+        <div style="margin-top: 30px;">
+            <h2>Tentang Saya</h2>
+            
+            <!-- Profile Photo Section -->
+            <div class="profile-section">
+                <div class="profile-photo">
+                    <img src="profile picture/Profil web.jpeg" alt="Vancel Rengkung" id="profile-image">
+                </div>
+                <div class="profile-info">
+                    <p>Saya adalah Vancel Rengkung, Mahasiswa teknik informatika UNSRAT.</p>
+                </div>
+            </div>
+
+    <!-- Theme Switcher Button -->
+    <button class="theme-switcher">🌙</button>
+
+    <script src="script.js"></script>
+    <script>
+        // Typing effect for homepage
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "Selamat datang di website pribadi saya. Mari kita belajar dan berkembang bersama!";
+            const typingElement = document.getElementById('typing-effect');
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    typingElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            typeWriter();
+            
+            // Style the skill bars
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                bar.style.backgroundColor = '#eee';
+                bar.style.height = '10px';
+                bar.style.borderRadius = '5px';
+                bar.style.marginBottom = '15px';
+                bar.style.position = 'relative';
+            });
+            
+            const skillLevels = document.querySelectorAll('.skill-level');
+            skillLevels.forEach(level => {
+                level.style.height = '100%';
+                level.style.borderRadius = '5px';
+                level.style.transition = 'width 1.5s ease-in-out';
+                level.style.width = '0';
+            });
+            
+            // Animate skill bars on page load
+            setTimeout(() => {
+                skillLevels.forEach(level => {
+                    level.style.width = level.getAttribute('style').split('width: ')[1].split(';')[0];
+                });
+            }, 500);
+        });
+
+    </script>
+</body>
+</html>

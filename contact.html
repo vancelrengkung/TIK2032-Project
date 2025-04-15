@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Website Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Konten Contact -->
+    <h1>Contact</h1>
+    <p>Silakan hubungi saya melalui informasi di bawah ini atau dengan mengisi formulir.</p>
+
+    <div class="contact-container">
+        <!-- Informasi Kontak -->
+        <div class="contact-info">
+            <h2>Informasi Kontak Saya</h2>
+            <ul>
+                <li><strong>Nama:</strong> <span id="contact-name">Vancel Rengkung</span></li>
+                <li><strong>Email:</strong> <a href="mailto:vancelrengkung026@student.unsrat.ac.id">vancelrengkung026@student.unsrat.ac.id</a></li>
+                <li><strong>Telepon:</strong> <a href="tel:+621244483313">+62 124 4483 313</a></li>
+            </ul>
+            </div>
+        </div>
+        
+        <!-- Form Kontak -->
+        <div class="contact-form">
+            <h2>Kirim Pesan</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subjek</label>
+                    <input type="text" id="subject" name="subject" placeholder="Masukkan subjek pesan">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Pesan</label>
+                    <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini"></textarea>
+                </div>
+                
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Theme Switcher Button -->
+    <button class="theme-switcher">🌙</button>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to the name on hover
+            const nameElement = document.getElementById('contact-name');
+            
+            if (nameElement) {
+                nameElement.addEventListener('mouseover', function() {
+                    this.style.color = '#3498db';
+                    this.style.transition = 'color 0.3s';
+                });
+                
+                nameElement.addEventListener('mouseout', function() {
+                    this.style.color = '';
+                });
+            }
+            
+            // Add interactivity to the map container
+            const mapContainer = document.getElementById('map-container');
+            
+            if (mapContainer) {
+                mapContainer.addEventListener('click', function() {
+                    alert('Peta interaktif akan ditampilkan di sini. Fitur ini akan ditambahkan segera!');
+                });
+                
+                mapContainer.style.cursor = 'pointer';
+                mapContainer.addEventListener('mouseover', function() {
+                    this.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.3)';
+                    this.style.transition = 'box-shadow 0.3s';
+                });
+                
+                mapContainer.addEventListener('mouseout', function() {
+                    this.style.boxShadow = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

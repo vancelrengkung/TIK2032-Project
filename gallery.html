@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Website Saya</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Konten Gallery -->
+    <h1>Gallery</h1>
+    <p>Berikut adalah kumpulan foto-foto kucing.</p>
+    
+    <!-- Filter buttons -->
+    <div style="margin: 20px 0;">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="cat">Kucing</button>
+        <button class="filter-btn" data-filter="nature">Alam</button>
+    </div>
+    
+    <div class="gallery-container">
+        <div class="gallery-item" data-category="cat">
+            <img src="img/foto1.jpg" alt="Foto Kucing 1">
+            <div class="gallery-caption">Kucing Lucu #1</div>
+        </div>
+        <div class="gallery-item" data-category="cat">
+            <img src="img/foto2.jpg" alt="Foto Kucing 2">
+            <div class="gallery-caption">Kucing Lucu #2</div>
+        </div>
+        <div class="gallery-item" data-category="cat">
+            <img src="img/foto3.jpeg" alt="Foto Kucing 3">
+            <div class="gallery-caption">Kucing Lucu #3</div>
+        </div>
+        <div class="gallery-item" data-category="nature">
+            <img src="img/pemandangan1.jpeg" alt="Pemandangan 1">
+            <div class="gallery-caption">Pemandangan Indah #1</div>
+        </div>
+        <div class="gallery-item" data-category="nature">
+            <img src="img/pemandangan2.jpg" alt="Pemandangan 2">
+            <div class="gallery-caption">Pemandangan Indah #2</div>
+        </div>
+        <div class="gallery-item" data-category="nature">
+            <img src="img/pemandangan3.jpg" alt="Pemandangan 3">
+            <div class="gallery-caption">Pemandangan Indah #3</div>
+        </div>
+    </div>
+
+    <!-- Theme Switcher Button -->
+    <button class="theme-switcher">🌙</button>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            // Style filter buttons
+            filterButtons.forEach(button => {
+                button.style.background = '#3498db';
+                button.style.color = 'white';
+                button.style.border = 'none';
+                button.style.padding = '8px 15px';
+                button.style.margin = '0 5px 5px 0';
+                button.style.borderRadius = '3px';
+                button.style.cursor = 'pointer';
+                button.style.transition = 'background-color 0.3s';
+            });
+            
+            // Add active class style
+            document.querySelector('.filter-btn.active').style.backgroundColor = '#2980b9';
+            
+            // Add filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.style.backgroundColor = '#3498db';
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    this.style.backgroundColor = '#2980b9';
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            // Add a fade-in animation
+                            item.style.opacity = '0';
+                            setTimeout(() => {
+                                item.style.transition = 'opacity 0.5s ease';
+                                item.style.opacity = '1';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
